@@ -6,8 +6,9 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "tsnd  --watch ./test src/api/server.ts ",
-    "test": "jest --watchAll"
+    "dev": "tsnd src/api/server.ts ",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",

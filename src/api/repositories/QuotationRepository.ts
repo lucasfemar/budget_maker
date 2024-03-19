@@ -24,8 +24,13 @@ class QuoatationRepository implements IQuotationRepository {
         this.quotations.push(quotation);
         return quotation;
     }
-    update(quatation: Quotation): Quotation {
-        throw new Error('Method not implemented.');
+    update(quotation: Quotation): Quotation {
+        this.quotations.forEach((quotationItem) => {
+            if (quotationItem.id === quotation.id) {
+                Object.assign(quotationItem, quotation);
+            }
+        });
+        return this.quotations.find((quotationItem) => quotationItem.id === quotation.id);
     }
     findById(quotationId: String): Quotation {
         throw new Error('Method not implemented.');

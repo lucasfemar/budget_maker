@@ -1,6 +1,7 @@
 interface IRequestServices {
     name: string;
     price: number;
+    hourQuantity: number;
     quantity: number;
     hourCalc: boolean;
 }

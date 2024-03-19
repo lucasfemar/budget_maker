@@ -3,7 +3,7 @@ import { IRequestMaterials, IRequestServices } from '../DTO/interfaces';
 function getTotalPriceServices(services: IRequestServices[]): number {
     const totalPrice = services.reduce((total, service): number => {
         if (service.hourCalc) {
-            return total + 100.0 * service.quantity;
+            return total + service.hourQuantity * 130.0 * service.quantity;
         } else {
             return total + service.quantity * service.price;
         }

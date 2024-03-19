@@ -5,6 +5,7 @@ class ServiceQuotation {
     name: string;
     price: number;
     quantity: number;
+    hourQuantity: number;
     hourCalc: boolean;
     created_at?: Date;
     updated_at?: Date;
