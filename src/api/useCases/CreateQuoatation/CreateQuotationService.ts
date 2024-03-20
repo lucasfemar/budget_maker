@@ -5,7 +5,7 @@ import { IServiceQuotationRepository } from '../../repositories/interfaces/IServ
 import { IMaterialQuotationRepository } from '../../repositories/interfaces/IMaterialQuoatationRepository';
 import { ServiceQuotation } from '../../entities/ServiceQuotation';
 import { MaterialQuotation } from '../../entities/MaterialQuotation';
-import { ErrorLog } from '../../util/ErrorLog';
+import { ErrorLog } from '../../utils/';
 
 interface IRequest {
     status: string;
