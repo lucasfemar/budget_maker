@@ -1,7 +1,11 @@
 import express, { NextFunction, Request, Response, response } from 'express';
 import 'express-async-errors'; // Deve ser importado antes das funções assincronas
+import dotenv from 'dotenv';
 
 import { router } from './routes';
+
+dotenv.config();
+
 function main() {
     const PORT = 8080;
     const app = express();

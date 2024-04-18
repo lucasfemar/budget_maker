@@ -7,6 +7,9 @@
   },
   "scripts": {
     "dev": "tsnd src/api/server.ts ",
+    "services:up": "docker compose -f src/infra/compose.yaml up -d",
+    "services:stop": "docker compose -f src/infra/compose.yaml stop",
+    "services:down": "docker compose -f src/infra/compose.yaml down",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -16,9 +19,14 @@
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.2",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
