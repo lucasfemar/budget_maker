@@ -8,7 +8,6 @@ interface ICreateUserDTO {
 }
 
 interface IUserRepository {
-  create({ name, email, dateOfBirth, password }: ICreateUserDTO): User;
   findByEmail(email: string): User;
 }
 

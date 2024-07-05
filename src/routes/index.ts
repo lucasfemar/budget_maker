@@ -8,7 +8,7 @@ import { statusRouter } from "./status.routes";
 const router = Router();
 
 router.use("/user", usersRouter);
-router.use("/login", loginRouter);
+// router.use("/login", loginRouter);
 router.use("/quotation", quotationRouter);
 router.use("/serviceQuotation", serviceQuotationRouter);
 router.use("/api/v1/status", statusRouter);

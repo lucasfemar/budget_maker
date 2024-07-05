@@ -14,7 +14,12 @@ describe("CREATE USER ENDPOINT", () => {
       },
       body: JSON.stringify(user),
     });
+    const responseBody = await response.json();
+    console.log(responseBody);
     expect(response.status).toBe(201);
+    expect(responseBody.user).toHaveProperty("id");
+    expect(responseBody.user.name).toBe(user.name);
+    expect(responseBody.email).toBe(user.email);
   });
 
   it("http://localhost:8080/users should return status 400", async () => {
