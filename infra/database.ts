@@ -1,10 +1,9 @@
 import { DataSource } from "typeorm";
 import { databaseconfig } from "./dbconfigs";
 
-async function getConnection() {
-  const connection = new DataSource(databaseconfig);
-  await connection.initialize();
-  return connection;
+function getDataSource() {
+  const dataSource = new DataSource(databaseconfig);
+  return dataSource;
 }
 
-export { getConnection };
+export { getDataSource };

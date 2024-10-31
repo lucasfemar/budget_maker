@@ -1,17 +1,16 @@
-import { getConnection } from "../../../infra/database";
-
+import { getDataSource } from "../../../infra/database";
 class CheckApplicationStatusService {
   async execute() {
-    const database = await getConnection();
-    const databaseVersionResult = await database.query("SHOW server_version");
+    const dataSource = await getDataSource();
+    const databaseVersionResult = await dataSource.query("SHOW server_version");
     const databaseVersionValue = databaseVersionResult[0].server_version;
-    const databaseMaxConnectionsResult = await database.query(
+    const databaseMaxConnectionsResult = await dataSource.query(
       "SHOW max_connections;",
     );
     const databaseMaxConnectionsValue =
       databaseMaxConnectionsResult[0].max_connections;
     const databaseName = process.env.POSTGRES_DB;
-    const databaseOpenedConnectionsResult = await database.query(
+    const databaseOpenedConnectionsResult = await dataSource.query(
       "SELECT count(*)::int FROM pg_stat_activity WHERE datname=$1",
       [databaseName],
     );

@@ -4,11 +4,21 @@ import "reflect-metadata";
 import dotenv from "dotenv";
 
 import { router } from "./routes";
+import { getDataSource } from "../infra/database";
 
 dotenv.config({ path: ".env.development" });
 
 function main() {
   const PORT = 8080;
+  const dataSource = getDataSource();
+  dataSource
+    .initialize()
+    .then(() => {
+      console.log("Database initialized sucessfully!");
+    })
+    .catch((error) => {
+      console.error("Erro initializing database!", error);
+    });
   const app = express();
   app.use(express.json());
   app.use(router);
